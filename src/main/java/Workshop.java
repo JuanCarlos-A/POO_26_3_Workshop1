@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.ArrayList;
 
 public class Workshop {
     public static void main(String[] args) {
@@ -9,23 +10,35 @@ public class Workshop {
     public int sumarDosNumeros(int a, int b) {
         // TODO: Implementar el método para retornar la suma de dos números enteros.
         // Ejemplo: Si a = 3 y b = 5, el resultado debería ser 8.
-        return a+b;
-	//return 0;
+		
+        return a+b; //Suma de Dos Numeros
     }
 
     // Método que encuentra el mayor de tres números enteros
     public int mayorDeTresNumeros(int a, int b, int c) {
         // TODO: Implementar el método para retornar el mayor de los tres números enteros.
         // Ejemplo: Si a = 3, b = 7, y c = 5, el resultado debería ser 7.
-      if (a>= b && a >=c) return a;
-    if (b>=c) return b;  
-      return c;
+      	
+		// Condicionales 	
+		if (a>= b && a >=c) return a;
+    	if (b>=c) return b;  
+      	return c;
     }
 
     // Método que retorna la tabla de multiplicar de un número
     public int[] tablaMultiplicar(int numero, int limite) {
         // TODO: Implementar el método para retornar la tabla de multiplicar del número dado.
         // Ejemplo: Si numero = 2 y limite = 5, el resultado debería ser [2, 4, 6, 8, 10].
+
+		// Declaracion de una lista de enteros para la tabla donde ya especifacmos el espacio
+		int[] tabla = new int[limite];
+		
+		// Bucle para devolver una lista con la tabla de multiplicar comenzando con numero * 1
+		for (int i = 0; i < limite; i++){
+			// Asignamos los valores uno a uno comenzando en 0
+			tabla[i] = numero * (i + 1);
+		}
+		return tabla;
         return new int[0];
     }
 
@@ -43,7 +56,7 @@ public class Workshop {
         // Ejemplo: Si numero = 7, el resultado debería ser true.
         return false;
     }
-
+	
     // Método que genera una serie de Fibonacci
     public int[] serieFibonacci(int n) {
         // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
