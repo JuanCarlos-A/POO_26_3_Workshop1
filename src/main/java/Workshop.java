@@ -67,8 +67,15 @@ public class Workshop {
     public boolean esPrimo(int numero) {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
-
-		
+		// Condicional para asegurarnos que numero sea mayor a uno y cumpla el requisito de los numeros primos
+		if (numero > 1){
+			// Inicializamos la variable que aumentara para comprobar uno por uno que el numero no sea primo
+			for (int divisor = 2; divisor < numero; divisor++){
+				if((numero % divisor) == 0){return false;}
+			}
+			return true;
+			
+		}else{return false;}
     }
 	
     // Método que genera una serie de Fibonacci
@@ -76,7 +83,6 @@ public class Workshop {
         // TODO: Implementar el método para generar la serie de Fibonacci hasta el número n.
         // Ejemplo: Si n = 5, el resultado debería ser [0, 1, 1, 2, 3].
         // Lanzar IllegalArgumentException si n es negativo.
-        return new int[0];
     }
 
     // Método que suma todos los elementos de un arreglo
