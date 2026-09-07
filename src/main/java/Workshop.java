@@ -38,7 +38,6 @@ public class Workshop {
 			tabla[i] = numero * (i + 1);
 		}
 		return tabla;
-        return new int[0];
     }
 
     // Método que calcula el factorial de un número entero
@@ -46,7 +45,19 @@ public class Workshop {
         // TODO: Implementar el método para calcular el factorial de un número entero.
         // Ejemplo: Si n = 5, el resultado debería ser 120.
         // Lanzar IllegalArgumentException si n es negativo.
-        return 0;
+
+        // Condicional si n = 0
+        if (n == 0) {return 1;}
+
+        // Ciclo para factorial
+        int i = 1; // Inicializamos la variable
+        int facto = n;
+        while(i < n){
+            facto = facto * (n-i);
+            i++;
+        }
+
+        return facto;
     }
 
     // Método que verifica si un número es primo
