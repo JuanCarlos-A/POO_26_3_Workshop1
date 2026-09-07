@@ -46,6 +46,9 @@ public class Workshop {
         // Ejemplo: Si n = 5, el resultado debería ser 120.
         // Lanzar IllegalArgumentException si n es negativo.
 
+		// Condicional si n es negativo
+		if (n < 0){throw new IllegalArgumentException("El numero " + n + " no puede ser negativo.");}
+
         // Condicional si n = 0
         if (n == 0) {return 1;}
 
@@ -64,7 +67,8 @@ public class Workshop {
     public boolean esPrimo(int numero) {
         // TODO: Implementar el método para verificar si un número es primo.
         // Ejemplo: Si numero = 7, el resultado debería ser true.
-        return false;
+
+		
     }
 	
     // Método que genera una serie de Fibonacci
