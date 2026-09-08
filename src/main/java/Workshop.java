@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class Workshop {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
-    }
+    }*/
 
     // Método que suma dos números enteros
     public int sumarDosNumeros(int a, int b) {
@@ -186,10 +186,21 @@ public class Workshop {
     }
 
     // Método que invierte un arreglo
-    public int[] invertirArreglo(int[] arreglo) {
+    public static int[] invertirArreglo(int[] arreglo) {
         // TODO: Implementar el método para invertir un arreglo.
         // Ejemplo: Si arreglo = [1, 2, 3, 4, 5], el resultado debería ser [5, 4, 3, 2, 1].
-        return new int[0];
+
+        int longitud = arreglo.length;
+        int down, up;
+
+        // Ciclo para recorrer el arreglo hasta la mitad
+        for (int i = 1; i < Math.ceil((double) longitud / 2); i++){
+            down = arreglo[i - 1];
+            up = arreglo[longitud - i];
+            arreglo[i - 1] = up;
+            arreglo[longitud - i] = down;
+        }
+        return arreglo;
     }
 
     // Método que ordena un arreglo en orden ascendente
