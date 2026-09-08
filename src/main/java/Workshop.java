@@ -110,8 +110,8 @@ public class Workshop {
         int cont = 0;
 
         // Ciclo que ayudara a recorrer los elementos del arreglo y sumarlos
-        for(int i = 0; i < arreglo.length; i++){
-            cont = cont + arreglo[i];
+        for (int j : arreglo) {
+            cont = cont + j;
         }
 
         return cont;
@@ -194,7 +194,7 @@ public class Workshop {
         int down, up;
 
         // Ciclo para recorrer el arreglo hasta la mitad
-        for (int i = 1; i < Math.ceil((double) longitud / 2); i++){
+        for (int i = 1; i <= Math.ceil((double) longitud / 2); i++){
             down = arreglo[i - 1];
             up = arreglo[longitud - i];
             arreglo[i - 1] = up;
@@ -207,7 +207,25 @@ public class Workshop {
     public int[] ordenarArreglo(int[] arreglo) {
         // TODO: Implementar el método para ordenar un arreglo en orden ascendente.
         // Ejemplo: Si arreglo = [5, 4, 3, 2, 1], el resultado debería ser [1, 2, 3, 4, 5].
-        return new int[0];
+
+        // Inicializamos las variables
+        int longitud = arreglo.length;
+        int up, down;
+
+        // Ciclo para recorrer la totalidad del arreglo y organizar el arreglo de manera ascendente
+        for (int i = 1; i <= Math.ceil((double) longitud / 2); i++){
+            up = arreglo[longitud - i];
+            down = arreglo[i - 1];
+            if (down > up){
+                arreglo[i-1] = up;
+                arreglo[longitud - i] = down;
+                i = 1;
+                continue;
+            }else if (up > down){continue;}
+            arreglo[i - 1] = arreglo[longitud - i];
+            arreglo[longitud - (i + 1)] = down;
+        }
+        return arreglo;
     }
 
     // Método que elimina los duplicados de un arreglo
