@@ -19,8 +19,8 @@ public class Workshop {
         // Ejemplo: Si a = 3, b = 7, y c = 5, el resultado debería ser 7.
       	
 		// Condicionales 	
-		if (a>= b && a >=c) return a;
-    	if (b>=c) return b;  
+		if (a>= b && a >=c) {return a;}
+    	if (b>=c) {return b;}
       	return c;
     }
 
