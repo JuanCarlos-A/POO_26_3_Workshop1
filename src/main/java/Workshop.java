@@ -568,6 +568,7 @@ public class Workshop {
     public String convertirAHexadecimal(int numero) {
         // TODO: Implementar el método para convertir un número en su representación hexadecimal.
         // Ejemplo: Si numero = 255, el resultado debería ser "FF".
+
         return "";
     }
 
@@ -614,6 +615,13 @@ Rock crushes Scissors
     }
 
     public String zoodiac(int day, int month) {
+        switch (month){
+            case 1:
+                if (day >= 1 && day <= 19){
+
+                }
+        }
+
         return "";
     }
 
