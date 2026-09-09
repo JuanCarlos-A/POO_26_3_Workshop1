@@ -233,38 +233,38 @@ public class Workshop {
         // Ejemplo: Si arreglo = [1, 2, 2, 3, 4, 4, 5], el resultado debería ser [1, 2, 3, 4, 5].
 
         // --- PASO 1: Contar cuántos elementos únicos existen ---
-        int cantidadUnicos = 0;
+        int numUni = 0;
 
         for (int i = 0; i < arreglo.length; i++) {
-            boolean esDuplicado = false;
+            boolean duplica = false;
             // Verificamos si el número ya apareció antes en el arreglo
             for (int j = 0; j < i; j++) {
                 if (arreglo[i] == arreglo[j]) {
-                    esDuplicado = true;
+                    duplica = true;
                     break; // Ya sabemos que está repetido, salimos del bucle interno
                 }
             }
             // Si no se repitió antes, lo contamos como único
-            if (!esDuplicado) {
-                cantidadUnicos++;
+            if (!duplica) {
+                numUni++;
             }
         }
 
         // --- PASO 2: Crear el nuevo arreglo y llenarlo ---
-        int[] resultado = new int[cantidadUnicos];
+        int[] resultado = new int[numUni];
         int indiceResultado = 0;
 
         for (int i = 0; i < arreglo.length; i++) {
-            boolean esDuplicado = false;
+            boolean duplica = false;
             // Volvemos a verificar si ya apareció antes
             for (int j = 0; j < i; j++) {
                 if (arreglo[i] == arreglo[j]) {
-                    esDuplicado = true;
+                    duplica = true;
                     break;
                 }
             }
             // Si es la primera vez que vemos el número, lo agregamos al resultado
-            if (!esDuplicado) {
+            if (!duplica) {
                 resultado[indiceResultado] = arreglo[i];
                 indiceResultado++;
             }
