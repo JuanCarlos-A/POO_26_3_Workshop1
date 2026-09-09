@@ -678,18 +678,67 @@ public class Workshop {
             Scissors = S
             Lizard = L
             Spock = V
-        Scissors cuts Paper
-Paper covers Rock
-Rock crushes Lizard
-Lizard poisons Spock
-Spock smashes Scissors
-Scissors decapitates Lizard
-Lizard eats Paper
-Paper disproves Spock
-Spock vaporizes Rock
-Rock crushes Scissors
-         */
-        return "";
+            Scissors cuts Paper
+            Paper covers Rock
+            Rock crushes Lizard
+            Lizard poisons Spock
+            Spock smashes Scissors
+            Scissors decapitates Lizard
+            Lizard eats Paper
+            Paper disproves Spock
+            Spock vaporizes Rock
+            Rock crushes Scissors
+            */
+
+            if (game == null || game.length < 2) {
+                return "Inválido";
+            }
+
+            String jugador1 = game[0];
+            String jugador2 = game[1];
+
+            // Validamos que ambas elecciones sean válidas
+            String opcionesValidas = "RPSLV";
+            if (jugador1 == null || jugador2 == null
+                    || jugador1.length() != 1 || jugador2.length() != 1
+                    || opcionesValidas.indexOf(jugador1.toUpperCase().charAt(0)) == -1
+                    || opcionesValidas.indexOf(jugador2.toUpperCase().charAt(0)) == -1) {
+                return "Inválido";
+            }
+
+            char c1 = Character.toUpperCase(jugador1.charAt(0));
+            char c2 = Character.toUpperCase(jugador2.charAt(0));
+
+            // Empate si eligieron lo mismo
+            if (c1 == c2) {
+                return "Empate";
+            }
+
+            // Lista de combinaciones donde el primer carácter vence al segundo
+            String[] combinacionesGanadoras = {
+                    "SP", // Scissors cuts Paper
+                    "PR", // Paper covers Rock
+                    "RL", // Rock crushes Lizard
+                    "LV", // Lizard poisons Spock
+                    "VS", // Spock smashes Scissors
+                    "SL", // Scissors decapitates Lizard
+                    "LP", // Lizard eats Paper
+                    "PV", // Paper disproves Spock
+                    "VR", // Spock vaporizes Rock
+                    "RS"  // Rock crushes Scissors
+            };
+
+            // Verificamos si jugador1 vence a jugador2
+            String combinacion1 = "" + c1 + c2;
+            for (int i = 0; i < combinacionesGanadoras.length; i++) {
+                if (combinacionesGanadoras[i].equals(combinacion1)) {
+                    return "Player 1";
+                }
+            }
+
+            // Si no ganó jugador1, entonces gana jugador2
+            return "Player 2";
+
     }
 
     public double areaCirculo(double radio) {
@@ -734,9 +783,42 @@ Rock crushes Scissors
                 }else{
                     return "Invalid Date";
                 }
+
+            case 5:
+                if (day >= 1 && day <= 20){
+                    return "Tauro";
+                }else if (day > 20 && day <= 31){
+                    return "Geminis";
+                }else{
+                    return "Invalid Date";
+                }
+            case 6:
+                if (day >= 1 && day <= 20){
+                    return "Geminis";
+                }else if (day > 20 && day <= 30){
+                    return "Cancer";
+                }else{
+                    return "Invalid Date";
+                }
+            case 7:
+                if (day >= 1 && day <= 22){
+                    return "Cancer";
+                }else if (day > 22 && day <= 31){
+                    return "Leo";
+                }else{
+                    return "Invalid Date";
+                }
+            case 8:
+                if (day >= 1 && day <= 22){
+                    return "Leo";
+                }else if (day > 22 && day <= 31){
+                    return "Virgo";
+                }else{
+                    return "Invalid Date";
+                }
         }
 
-        return "";
+        return "Invalid Date";
     }
 
 
