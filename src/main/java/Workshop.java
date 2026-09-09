@@ -613,8 +613,62 @@ public class Workshop {
 
         // El método debe retornar un mensaje indicando el resultado del juego.
         // Ejemplo: Si la eleccionUsuario es "Piedra", el resultado podría ser "Ganaste" o "Perdiste" dependiendo de la elección de la computadora.
-        return "";
+
+        String[] opciones = {"Piedra", "Papel", "Tijera", "Lagarto", "Spock"};
+
+        // Validamos que la elección del usuario sea válida
+        boolean valida = false;
+        for (int i = 0; i < opciones.length; i++) {
+            if (opciones[i].equalsIgnoreCase(eleccionUsuario)) {
+                valida = true;
+                break;
+            }
+        }
+        if (!valida) {
+            return "Inválido";
+        }
+
+        // La computadora elige una opción al azar (0 a 4)
+        int indiceComputadora = (int) (Math.random() * opciones.length);
+        String eleccionComputadora = opciones[indiceComputadora];
+
+        // Si ambos eligieron lo mismo, es empate
+        if (eleccionComputadora.equalsIgnoreCase(eleccionUsuario)) {
+            return "Empate";
+        }
+
+        // Verificamos si la elección del usuario vence a la de la computadora
+        if (vence(eleccionUsuario, eleccionComputadora)) {
+            return "Ganaste";
+        } else {
+            return "Perdiste";
+        }
     }
+
+    // Método auxiliar: determina si "opcionA" vence a "opcionB" según las reglas del juego
+    private boolean vence(String opcionA, String opcionB) {
+        String a = opcionA.toLowerCase();
+        String b = opcionB.toLowerCase();
+
+        if (a.equals("piedra")) {
+            return b.equals("tijera") || b.equals("lagarto");
+        }
+        if (a.equals("papel")) {
+            return b.equals("piedra") || b.equals("spock");
+        }
+        if (a.equals("tijera")) {
+            return b.equals("papel") || b.equals("lagarto");
+        }
+        if (a.equals("lagarto")) {
+            return b.equals("spock") || b.equals("papel");
+        }
+        if (a.equals("spock")) {
+            return b.equals("tijera") || b.equals("piedra");
+        }
+
+        return false;
+    }
+
 
     public String pptls2(String game[]) {
         //Retornar player ganador o empate
@@ -643,11 +697,6 @@ Rock crushes Scissors
     }
 
     public String zoodiac(int day, int month) {
-        // Condicional en caso de una fecha invalida
-        if (day > 31){ return "Invalid Date";}
-        else if (day > 29 && month == 2){  return "Invalid Date"; }
-
-
         // Switch-case para cada mes, dia y sus armaduras
         switch (month){
             case 1:
@@ -662,8 +711,26 @@ Rock crushes Scissors
             case 2:
                 if (day >= 1 && day <= 18){
                     return "Acuario";
-                }else if (day > 19 && day <= 31){
-                    return "Acuario";
+                }else if (day > 18 && day <= 29){
+                    return "Piscis";
+                }else{
+                    return "Invalid Date";
+                }
+
+            case 3:
+                if (day >= 1 && day <= 20){
+                    return "Piscis";
+                }else if (day > 20 && day <= 31){
+                    return "Aries";
+                }else{
+                    return "Invalid Date";
+                }
+
+            case 4:
+                if (day >= 1 && day <= 19){
+                    return "Aries";
+                }else if (day > 19 && day <= 30){
+                    return "Tauro";
                 }else{
                     return "Invalid Date";
                 }
