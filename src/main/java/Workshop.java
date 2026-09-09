@@ -399,7 +399,7 @@ public class Workshop {
         // split("\\s+") separa por uno o más espacios en blanco
         String[] palabras = cadena.trim().split("\\s+");
 
-        return palabras.length;
+        return palabras.length; // Retornamos la longitud del arreglo
 
     }
 
