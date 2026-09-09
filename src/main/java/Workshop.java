@@ -816,6 +816,38 @@ public class Workshop {
                 }else{
                     return "Invalid Date";
                 }
+            case 9:
+                if (day >= 1 && day <= 22){
+                    return "Virgo";
+                }else if (day > 22 && day <= 30){
+                    return "Libra";
+                }else{
+                    return "Invalid Date";
+                }
+            case 10:
+                if (day >= 1 && day <= 22){
+                    return "Libra";
+                }else if (day > 22 && day <= 31){
+                    return "Escorpio";
+                }else{
+                    return "Invalid Date";
+                }
+            case 11:
+                if (day >= 1 && day <= 21){
+                    return "Escorpio";
+                }else if (day > 21 && day <= 30){
+                    return "Sagitario";
+                }else{
+                    return "Invalid Date";
+                }
+            case 12:
+                if (day >= 1 && day <= 21){
+                    return "Sagitario";
+                }else if (day > 21 && day <= 31){
+                    return "Capricornio";
+                }else{
+                    return "Invalid Date";
+                }
         }
 
         return "Invalid Date";
