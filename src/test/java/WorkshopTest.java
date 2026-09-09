@@ -232,7 +232,7 @@ public class WorkshopTest {
         // Test 2: Invertir cadena vacía
         assertEquals("", tester.invertirCadena(""));
         // Test 3: Invertir cadena con caracteres especiales
-        assertEquals("!@#321", tester.invertirCadena("123@#!"));
+        assertEquals("!#@321", tester.invertirCadena("123@#!"));
     }
 
     // Test para el método esPalindromo
