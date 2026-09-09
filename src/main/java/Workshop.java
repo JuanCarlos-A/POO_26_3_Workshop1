@@ -208,22 +208,21 @@ public class Workshop {
         // TODO: Implementar el método para ordenar un arreglo en orden ascendente.
         // Ejemplo: Si arreglo = [5, 4, 3, 2, 1], el resultado debería ser [1, 2, 3, 4, 5].
 
-        // Inicializamos las variables
-        int longitud = arreglo.length;
-        int up, down;
+        //Inicializamos la variable para guardar el numero temporal
+        int numTem;
 
         // Ciclo para recorrer la totalidad del arreglo y organizar el arreglo de manera ascendente
-        for (int i = 1; i <= Math.ceil((double) longitud / 2); i++){
-            up = arreglo[longitud - i];
-            down = arreglo[i - 1];
-            if (down > up){
-                arreglo[i-1] = up;
-                arreglo[longitud - i] = down;
-                i = 1;
-                continue;
-            }else if (up > down){continue;}
-            arreglo[i - 1] = arreglo[longitud - i];
-            arreglo[longitud - (i + 1)] = down;
+        for (int i = 0; i < arreglo.length; i++)
+        {
+            for (int j = i; j < arreglo.length; j++)
+            {
+                if (arreglo[i] > arreglo[j])
+                {
+                    numTem = arreglo[j];
+                    arreglo[j] = arreglo[i];
+                    arreglo[i] = numTem;
+                }
+            }
         }
         return arreglo;
     }
