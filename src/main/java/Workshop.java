@@ -408,14 +408,8 @@ public class Workshop {
         // TODO: Implementar el método para convertir una cadena a mayúsculas.
         // Ejemplo: Si cadena = "hello", el resultado debería ser "HELLO".
 
-        char[] resultado = new char[cadena.length()];
-
-        // Recorremos cada carácter y lo convertimos a mayúscula
-        for (int i = 0; i < cadena.length(); i++) {
-            resultado[i] = Character.toUpperCase(cadena.charAt(i));
-        }
-
-        return new String(resultado);
+        // Usamos el metodo directamente
+        return cadena.toUpperCase();
     }
 
     // Método que convierte una cadena a minúsculas
