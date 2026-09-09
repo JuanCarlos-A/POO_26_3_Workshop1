@@ -457,7 +457,54 @@ public class Workshop {
     public boolean validarCorreoElectronico(String correo) {
         // TODO: Implementar el método para validar un correo electrónico.
         // Ejemplo: Si correo = "test@example.com", el resultado debería ser true.
-        return false;
+        // Método que valida un correo electrónico
+
+        // Buscamos la posición del símbolo '@'
+        int posArroba = correo.indexOf('@');
+
+        // Debe existir un '@', no puede estar al inicio,
+        // y no puede haber más de un '@'
+        if (posArroba <= 0 || correo.indexOf('@', posArroba + 1) != -1) {
+            return false;
+        }
+
+        // Separamos en parte local (antes del @) y dominio (después del @)
+        String parteLocal = correo.substring(0, posArroba);
+        String dominio = correo.substring(posArroba + 1);
+
+        // El dominio no puede estar vacío
+        if (dominio.isEmpty()) {
+            return false;
+        }
+
+        // Buscamos el último punto en el dominio
+        int posPunto = dominio.lastIndexOf('.');
+
+        // Debe existir un punto en el dominio, no puede ser el primer carácter,
+        // y debe haber al menos 2 caracteres después del punto (ej: ".com")
+        if (posPunto <= 0 || posPunto == dominio.length() - 1
+                || dominio.length() - posPunto - 1 < 2) {
+            return false;
+        }
+
+        // Validamos que la parte local solo tenga caracteres permitidos
+        // (letras, dígitos, punto, guion o guion bajo)
+        for (int i = 0; i < parteLocal.length(); i++) {
+            char c = parteLocal.charAt(i);
+            if (!Character.isLetterOrDigit(c) && c != '.' && c != '_' && c != '-') {
+                return false;
+            }
+        }
+
+        // Validamos que el dominio solo tenga caracteres permitidos
+        for (int i = 0; i < dominio.length(); i++) {
+            char c = dominio.charAt(i);
+            if (!Character.isLetterOrDigit(c) && c != '.' && c != '_' && c != '-') {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // Método que calcula el promedio de una lista de números
