@@ -326,6 +326,8 @@ public class Workshop {
     public int contarCaracteres(String cadena) {
         // TODO: Implementar el método para contar el número de caracteres en una cadena.
         // Ejemplo: Si cadena = "Hello", el resultado debería ser 5.
+
+        // Usamos directamente el metodo de los objetos String
         return cadena.length();
     }
 
@@ -333,7 +335,18 @@ public class Workshop {
     public String invertirCadena(String cadena) {
         // TODO: Implementar el método para invertir una cadena.
         // Ejemplo: Si cadena = "Hello", el resultado debería ser "olleH".
-        return "";
+
+        // Inicializamos una variable temporal para la letra
+        int n = cadena.length();
+        char[] invertido = new char[n];
+
+        // Recorremos la cadena original de izquierda a derecha
+        // y colocamos cada carácter en la posición opuesta del nuevo arreglo
+        for (int i = 0; i < n; i++) {
+            invertido[n - 1 - i] = cadena.charAt(i);
+        }
+
+        return new String(invertido);
     }
 
     // Método que verifica si una cadena es un palíndromo
