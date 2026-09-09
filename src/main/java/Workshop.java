@@ -569,7 +569,35 @@ public class Workshop {
         // TODO: Implementar el método para convertir un número en su representación hexadecimal.
         // Ejemplo: Si numero = 255, el resultado debería ser "FF".
 
-        return "";
+        // Caso especial: el cero se representa como "0"
+        if (numero == 0) {
+            return "0";
+        }
+
+        boolean esNegativo = numero < 0;
+        int n = Math.abs(numero);
+
+        // Dígitos hexadecimales, en orden (índice = valor)
+        String digitos = "0123456789ABCDEF";
+
+        StringBuilder hexadecimal = new StringBuilder();
+
+        // Dividimos repetidamente entre 16, guardando el residuo
+        while (n > 0) {
+            int residuo = n % 16;
+            hexadecimal.append(digitos.charAt(residuo)); // convertimos el residuo a su dígito hex
+            n = n / 16;
+        }
+
+        // Los dígitos quedaron en orden inverso, así que invertimos el resultado
+        hexadecimal.reverse();
+
+        // Si el número original era negativo, anteponemos el signo
+        if (esNegativo) {
+            hexadecimal.insert(0, "-");
+        }
+
+        return hexadecimal.toString();
     }
 
     // Método para el juego de piedra, papel, tijera, lagarto, Spock
@@ -615,10 +643,29 @@ Rock crushes Scissors
     }
 
     public String zoodiac(int day, int month) {
+        // Condicional en caso de una fecha invalida
+        if (day > 31){ return "Invalid Date";}
+        else if (day > 29 && month == 2){  return "Invalid Date"; }
+
+
+        // Switch-case para cada mes, dia y sus armaduras
         switch (month){
             case 1:
                 if (day >= 1 && day <= 19){
+                    return "Capricornio";
+                }else if (day > 19 && day <= 31){
+                    return "Acuario";
+                }else{
+                    return "Invalid Date";
+                }
 
+            case 2:
+                if (day >= 1 && day <= 18){
+                    return "Acuario";
+                }else if (day > 19 && day <= 31){
+                    return "Acuario";
+                }else{
+                    return "Invalid Date";
                 }
         }
 
